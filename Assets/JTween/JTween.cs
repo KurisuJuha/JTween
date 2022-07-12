@@ -47,15 +47,18 @@ namespace JuhaKurisu.JTween
                 i++;
             }
 
-            // 全てのオブジェクトのタスクを実行する。
+            // 全てのオブジェクトのタスクを実行する
             foreach (int key in JTweenObjectsKeys)
             {
                 JTweenObject currentObject = JTweenObjects[key];
 
+                // taskがあったら取り出す
                 if (currentObject.Tasks.TryPeek(out JTweenTask JTweenTask))
                 {
+                    // taskを実行
                     if (JTweenTask.task.Tween(JTweenTask, currentObject, elapsedTime - JTweenTask.StartTime > JTweenTask.Duration))
                     {
+                        // そのtaskが終了した場合にそのtaskを削除する
                         currentObject.Tasks.Dequeue();
                     }
                 }
