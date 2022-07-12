@@ -7,7 +7,12 @@ namespace JuhaKurisu.JTween
     public class JTween : JtweenSingletonMonoBehaviour<JTween>
     {
         public Dictionary<int, JTweenObject> JTweenObjects = new Dictionary<int, JTweenObject>();
-        public double ElapsedTime = 0d;
+        public double elapsedTime = 0d;
+
+        public static double ElapsedTime
+        {
+            get => Instance.elapsedTime;
+        }
 
         public static JTweenObject AddJTweenObject(GameObject gameObject)
         {
@@ -30,6 +35,8 @@ namespace JuhaKurisu.JTween
 
         private void Update()
         {
+            elapsedTime += Time.deltaTime;
+
             // JTweenObjects‚ÌƒL[‚ðˆÚ‚·
             int[] JTweenObjectsKeys = new int[JTweenObjects.Count];
             int i = 0;
@@ -47,7 +54,7 @@ namespace JuhaKurisu.JTween
 
                 if (currentObject.Tasks.TryPeek(out JTweenTask JTweenTask))
                 {
-                    if (JTweenTask.task.Tween(0, currentObject))
+                    if (JTweenTask.task.Tween(JTweenTask, currentObject, elapsedTime - JTweenTask.StartTime > JTweenTask.Duration))
                     {
                         currentObject.Tasks.Dequeue();
                     }

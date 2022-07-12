@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JuhaKurisu.JTween.transform;
 
 namespace JuhaKurisu.JTween
 {
     public static class JTweenTransform
     {
-        public static Transform JMove(this Transform transform)
+        public static Transform JMove(this Transform transform, double Duration)
         {
             JTweenObject obj = JTween.AddJTweenObject(transform.gameObject);
 
-            obj.AddTask(new JTweenTask()
+            JTweenTask task = new JTweenTask()
             {
-                task = new JTweenTaskTest()
-            });
+                StartTime = JTween.ElapsedTime,
+                Duration = Duration,
+                task = new JMove()
+            };
+
+            obj.AddTask(task);
 
             return transform;
         }
     }
-
 }

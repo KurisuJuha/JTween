@@ -17,6 +17,8 @@ namespace JuhaKurisu.JTween
 
     public class JTweenTask
     {
+        public double StartTime;
+        public double Duration;
         public JTweenTaskBase task;
     }
 }

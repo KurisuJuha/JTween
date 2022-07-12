@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using JuhaKurisu.JTween;
+
+namespace JuhaKurisu.JTween.transform
+{
+    public class JMove : JTweenTaskBase
+    {
+        public override bool Tween(JTweenTask task, JTweenObject obj, bool over)
+        {
+            // Ç±Ç±Ç©ÇÁ
+
+            if (over)
+            {
+                Debug.Log("èIÇÌÇË");
+            }
+            else
+            {
+                Debug.Log(JTween.ElapsedTime - task.StartTime);
+            }
+
+            // Ç±Ç±Ç‹Ç≈Ç…èàóùÇèëÇ≠
+            return over;
+        }
+    }
+}
