@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JTweenObject
+namespace JuhaKurisu.JTween
 {
-    public GameObject gameObject;
-    public List<JTweenTask> Tasks = new List<JTweenTask>();
-}
+    public class JTweenObject
+    {
+        public GameObject gameObject;
+        public Queue<JTweenTask> Tasks = new Queue<JTweenTask>();
 
-public class JTweenTask
-{
+        public void AddTask(JTweenTask task)
+        {
+            Tasks.Enqueue(task);
+        }
+    }
 
+    public class JTweenTask
+    {
+        public JTweenTaskBase task;
+    }
 }
