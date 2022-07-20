@@ -20,7 +20,9 @@ namespace JuhaKurisu.JTween
         public double StartTime;
         public double Duration;
 
+        public double[] param_double;
 
+        public int[] param_int;
 
         public JTweenTaskBase task;
     }

@@ -1,0 +1,12 @@
+{
+    "name": "jp.juhakurisu.jtween",
+    "version": "0.0.0",
+    "displayName": "JTween",
+    "description": "僕のPCがDOTweenを嫌っているみたいなので、自分が使う用のTweenライブラリです。",
+    "unity": "2021.3",
+    "unityRelease": "1f1",
+  
+    "author": {
+      "name": "JuhaKurisu"
+    }
+}
